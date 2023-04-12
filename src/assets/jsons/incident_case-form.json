@@ -1,0 +1,168 @@
+{
+	"pageHeading": "Incident case",
+	"formType": "simple",
+  "addEditMode": "popup",
+  "keyField":"case_id",
+	"form": {
+	  "collectionName": "incident_case",
+    "getDataEndPoint": "incident_case/filter/case_id",
+	  "fields": [
+		{
+      "fieldGroupClassName": "display-flex",
+		  "fieldGroup": [
+			{
+			  "type": "input",
+			  "key": "case_id",
+			  "className": "flex-1",
+			  "props": {
+				"label": "Incident Case ID ",
+				"placeholder": "ID",
+				"required": true,
+        "pattern": "^[a-zA-Z0-9-_]*$"
+			  }
+			},
+      {
+        "type": "select_dynamic_options",
+      "key": "division_code",
+      "className": "flex-1",
+      "props": {
+        "label": "Division",
+        "labelPropTemplate": " {{name}}",
+        "optionsDataSource": {
+        "collectionName": "division"
+        },
+        "labelProp": "name",
+        "valueProp": "division_code",
+        "required": true
+      }
+    }
+     
+      
+		  ]
+		},
+  
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+
+ 
+        {
+          "type": "select_dynamic_options",
+        "key": "category_code",
+        "className": "flex-1",
+      
+        "props": {
+          "label": "Category",
+          "labelPropTemplate": " {{name}}",
+          "optionsDataSource": {
+          "collectionName": "category"
+          },
+          "labelProp": "name",
+          "valueProp": "category_code",
+          "required": true
+        }
+      },
+      {
+        "type": "select_dynamic_options",
+      "key": "subcategory_code",
+      "className": "flex-1",
+      "parentKey":"category_code",
+      "parentCollectionName":"subcategory/filter/category_code",
+      "defaultValue":"",
+      "props": {
+        "label": "Sub-Category",
+        "labelPropTemplate": " {{name}}",
+        "optionsDataSource": {
+        "collectionName": "subcategory",
+        "firstOption":{"name":"None","subcategory_code":""}
+        },
+        "labelProp": "name",
+        "valueProp": "subcategory_code"
+      
+      }
+    }
+          
+    ]},
+
+
+ 
+{
+  "fieldGroupClassName": "display-flex",
+  "fieldGroup": [
+
+  
+  {
+    "key": "alert_level",
+    "type": "select",
+    "className": "flex-1",
+    "props": {
+      "type": "input",
+      "label": "Alert Level",
+      "options": [
+        {
+        "label": "Yellow",
+        "value": "yellow"
+        },
+        {
+          "label": "Red",
+          "value": "red"
+          }
+      ],
+      "required": true
+    }
+  },
+  {
+    "type": "select",
+    "key": "status",
+    "className": "flex-1",
+    "defaultValue":"Active",
+    "props": {
+      "label": "Status",
+      "options": [
+        {
+          "label": "Active",
+          "value": "Active"
+        },
+        {
+          "label": "InActive",
+          "value": "InActive"
+        }
+      ]
+     
+    },
+    "expressions": {
+      "hide": "!model.isshow"
+    }
+  }
+
+
+]
+},
+
+{
+  "fieldGroupClassName": "display-flex",
+  "fieldGroup": [
+
+ 
+    {
+      "type": "html",
+      "key": "description",
+      "className": "flex-2",
+      "props": {
+      "label": "Description",
+      "placeholder": "Name",
+      "required": true
+      }
+    }
+
+
+]
+}
+
+
+
+	  ]
+	}
+
+
+  }

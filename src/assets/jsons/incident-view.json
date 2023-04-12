@@ -1,0 +1,235 @@
+{
+	"pageHeading": "Incident",
+	"formType": "simple",
+	"form": {
+	  "collectionName": "incident",
+	  "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+      {
+			  "type": "label_view",
+			  "key": "id",
+        "className": "flex-1",
+			  "props": {
+				"label": "Incient ID",
+        "readonly":true
+			  }
+      },
+      {
+        "type": "label_view",
+        "key": "incident_datetime",
+        "className": "flex-1",
+        "props": {
+        "label": "Incident Date & Time"
+        }
+      }
+
+    ]
+  },
+
+        {
+          "fieldGroupClassName": "display-flex",
+          "fieldGroup": [ 
+            {
+              "type": "label_view",
+              "key": "short_description",
+              "className": "flex-1",
+              "props": {
+              "label": "Short Description"
+              }
+            },
+            {
+              "type": "label_view",
+              "key": "division.name",
+              "className": "flex-1",
+              "props": {
+              "label": "Division"
+              },
+              "expressions": {
+                "hide":"model.roleId != 'OA'"
+              }
+            }
+            ]},
+                {
+                  "fieldGroupClassName": "display-flex",
+                  "fieldGroup": [
+                    {
+                      "type": "label_view",
+                      "key": "site.name",
+                      "className": "flex-1",
+                      "props": {
+                      "label": "Site"
+                      },
+                      "expressions": {
+                        "hide": "(model.roleId == 'SM'|| model.roleId == 'SU') "
+                      }
+                        },
+            {
+              "type": "label_view",
+              "key": "category.name",
+              "className": "flex-1",
+              "props": {
+                "label": "Category"
+              }
+            }
+
+
+        
+
+      ]
+    },
+          {
+            "fieldGroupClassName": "display-flex",
+            "fieldGroup": [
+              {
+                "key": "subcategory.name",
+                "type": "label_view",
+                "className": "flex-1",
+                "props": {
+  
+                  "label": "Sub Category"
+  
+                }
+              },
+              {
+                "type": "label_view",
+                "key": "risk_level",
+                "className": "flex-1",
+                "props": {
+                  "label": "Risk Level"
+                }
+              }
+
+
+
+        ]
+      },
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+
+          {
+            "key": "is_reccuring_alert",
+            "type": "label_view",
+            "className": "flex-1",
+            "props": {
+
+              "label": "Is it reccuring alert"
+
+            }
+          },
+
+          {
+            "key": "is_IT_support_needed",
+            "type": "label_view",
+            "className": "flex-1",
+            "props": {
+
+              "label": "Is IT support needed"
+
+            }
+          }
+    ]},
+    {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+
+          {
+            "key": "trigger_user.user_name",
+            "type": "label_view",
+            "className": "flex-1",
+            "props": {
+
+              "label": "Trigger Name"
+
+            }
+          },
+          {
+            "key": "consultant_user_name1",
+            "type": "label_view",
+            "className": "flex-1",
+            "props": {
+
+              "label": "Consultant Name"
+
+            }
+          }
+
+    ]},
+    {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+
+          {
+            "key": "pilot_user.user_name",
+            "type": "label_view",
+            "className": "flex-1",
+            "props": {
+
+              "label": "Pilot Name"
+
+            }
+          },
+          {
+            "key": "consultant_user_name2",
+            "type": "label_view",
+            "className": "flex-1",
+            "props": {
+
+              "label": "Consultant Name"
+
+            }
+          }
+
+    ]},
+    {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+
+          {
+            "key": "manager_user.user_name",
+            "type": "label_view",
+            "className": "flex-1",
+            "props": {
+
+              "label": "Manager ID"
+
+            }
+          },
+          {
+            "key": "consultant_user_name3",
+            "type": "label_view",
+            "className": "flex-1",
+            "props": {
+
+              "label": "Consultant Name"
+
+            }
+          }
+
+    ]},
+    {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+            {
+                "key": "description",
+                "type": "label_view",
+                "className": "flex-1",
+                "props": {
+    
+                  "label": "Description"
+    
+                }
+              }
+             
+
+        ]}
+
+
+
+
+
+	  ]
+	}
+  }

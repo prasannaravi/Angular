@@ -1,0 +1,82 @@
+{
+	"pageHeading": "Incident case",
+	"collectionName": "incidentcase",
+	"show":true,
+    "edit_mode":"popup",
+	
+
+
+
+
+
+	"actions":[
+		{
+			"label":"Edit",
+			"icon":"edit",
+			"method":"edit()"
+		},
+		{
+			"label":"View",
+			"icon":"visibility",
+			"method":"view()"
+		},
+		{
+			"label":"Delete",
+			"icon":"delete",
+			"method":"delete()"
+		}
+		],
+
+
+	"columnDefs": [
+               {
+			"headerName": "Incident Case ID",
+			"field": "incidentcase_id",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Division",
+			"field": "division_name",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		
+		{
+			"headerName": "Category",
+			"field": "category_name",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Alert Level ",
+			"field": "alert_level",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Description",
+			"field": "description",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		
+	
+
+
+
+		{
+			"type":"rightAligned",
+            "headerName": "Actions",
+            "cellRenderer": "buttonRenderer",
+            "cellRendererParams": {
+              "onClick": "this.onBtnClick1.bind(this)",
+              "label": "Click 1"
+            }
+          }
+
+
+	]
+
+}
+

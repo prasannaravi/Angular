@@ -1,0 +1,105 @@
+{
+	"pageHeading": "Incident",
+	"collectionName": "incident",
+	"show":true,
+    "editMode":"page",
+	"addRoute": "/add/incident",
+	"editRoute":"/edit/incident",
+	"keyFeild":"id",
+
+	"actions":[
+		{
+			"label":"Edit",
+			"icon":"edit",
+			"method":"edit()"
+		},
+		{
+			"label":"View",
+			"icon":"visibility",
+			"method":"view()"
+		},
+		{
+			"label":"Delete",
+			"icon":"delete",
+			"method":"delete()"
+		}
+		],
+
+
+	"columnDefs": [
+		{
+			"headerName": "Incident id",
+			"field": "id",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Incident Date & Time",
+			"field": "incident_datetime",
+			"type":"datetime",
+			"sortable":true,
+			"filter": "agDateColumnFilter"
+		},
+	
+               {
+			"headerName": "Short description",
+			"field": "short_description",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Division",
+			"field": "division.name",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Site",
+			"field": "site.name",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+	
+		{
+			"headerName": "Category",
+			"field": "category.name",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Sub-Category",
+			"field": "subcategory.name",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+	
+	
+		{
+			"headerName": "Risk Level",
+			"field": "risk_level",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+	
+    {
+			"headerName": "Status",
+			"field": "status",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+	
+		{
+			"type":"rightAligned",
+            "headerName": "Actions",
+            "cellRenderer": "buttonRenderer",
+            "cellRendererParams": {
+              "onClick": "this.onBtnClick1.bind(this)",
+              "label": "Click 1"
+            }
+          }
+
+
+	]
+
+}
+

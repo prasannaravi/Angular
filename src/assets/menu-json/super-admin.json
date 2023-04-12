@@ -1,0 +1,18 @@
+[
+	
+			{
+				"displayName": "Company",
+				"iconName": "assignment_ind",
+				"route": "/list/organization"
+			},
+      
+			{
+				"displayName": "User Role",
+				"iconName": "assignment_ind",
+				"route": "/list/userrole"
+			}
+     
+	
+
+
+]

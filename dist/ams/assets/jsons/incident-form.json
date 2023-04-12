@@ -1,0 +1,525 @@
+{
+	"pageHeading": "Incident",
+	"formType": "simple",
+  "addEditMode": "page",
+  "onCancelRoute":"/list/incident",
+  "keyField":"id",
+  "bind":true,
+	"form": {
+	  "collectionName": "incident",
+	  "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [ 
+      {
+       
+			  "type": "label_view",
+			  "key": "id",
+			  
+			  "props": {
+				"label": "Incident ID"
+			  },  
+         "expressions": {
+          "hide": "!model.isshow"
+        }
+			}
+    ]},
+
+
+		{
+      "fieldGroupClassName": "display-flex",
+		  "fieldGroup": [ 
+        
+    
+			{
+			  "type": "datetimepicker",
+			  "key": "incident_datetime",
+			  "className": "flex-1",
+			  "props": {
+				"label": "Incident Date & Time",
+				"placeholder": "Incident Date & Time",
+				"required": true
+        
+			  },
+        "expressions": {
+          "props.disabled": "model.isEdit"
+        }
+			},
+      {
+        "type": "input",
+        "key": "short_description",
+        "className": "flex-2",
+        "props": {
+        "label": "Incident Short Description",
+        "pattern": "^[a-zA-Z0-9&>/;,:-_]+( [a-zA-Z0-9&>/;,:-_]+)*$",
+        "placeholder": "Name",
+        "required": true
+        }
+      }
+		  ]
+		},
+
+
+
+    {
+      "fieldGroupClassName": "display-flex",
+		  "fieldGroup": [
+
+
+        
+            {
+              "type": "select_dynamic_options",
+            "key": "division_code",
+            "className": "flex-1",
+            "props": {
+              "label": "Division",
+              "labelPropTemplate": " {{name}}",
+              "optionsDataSource": {
+              "collectionName": "division"
+              },
+              "labelProp": "name",
+              "valueProp": "division_code",
+              "required": true
+            }
+          },
+            {
+                "type": "select_dynamic_options",
+              "key": "site_code",
+              "className": "flex-1",
+              "props": {
+                "label": "Site",
+                "labelPropTemplate": " {{name}}",
+                "optionsDataSource": {
+                "collectionName": "site"
+                },
+                "labelProp": "name",
+                "valueProp": "site_code",
+                "required": true
+              }
+            }
+          
+            
+  ]
+},
+{
+  "fieldGroupClassName": "display-flex",
+  "fieldGroup": [
+{
+  "type": "select",
+  "key": "status",
+  "className": "flex-1",
+  "props": {
+    "label": "Status",
+    "options": [
+      {
+        "label": "Open",
+        "value": "Open"
+      },
+      {
+        "label": "Closed",
+        "value": "Closed"
+      }
+    ],
+    "required": true
+  },
+  "expressions": {
+    "hide": "!model.isshow"
+  }
+}]},
+{
+    "type": "tabs",
+   
+    "fieldGroup": [
+      
+      {
+        "props": { "label": "Description" },
+       
+        "fieldGroup": [
+            {
+                "fieldGroupClassName": "display-flex",
+                "fieldGroup": [
+                  {
+                      "type": "html",
+                      "key": "description",
+                      "className": "flex-1",
+                      "props": {
+                      "label": "Incident Description",
+                      "required": true
+                      }
+                    }
+            ]
+          },
+
+          {
+            "fieldGroupClassName": "display-flex",
+            "fieldGroup": [
+    
+     
+            {
+              "type": "select_dynamic_options",
+            "key": "category_code",
+            "className": "flex-1",
+          
+            "props": {
+              "label": "Select Risk Category",
+              "labelPropTemplate": " {{name}}",
+              "optionsDataSource": {
+              "collectionName": "category"
+              },
+              "labelProp": "name",
+              "valueProp": "category_code",
+              "required": true
+            }
+          },
+          {
+          "type": "select_dynamic_options",
+          "key": "subcategory_code",
+          "className": "flex-1",
+          "parentKey":"category_code",
+          "parentCollectionName":"category",
+          "defaultValue":"",
+          "props": {
+            "label": "Sub-Category",
+            "labelPropTemplate": " {{subcategory_name}}",
+            "optionsDataSource": {
+            "collectionName": "subcategory",
+            "firstOption":{"subcategory_name":"None","subcategory_code":""}
+            },
+            "labelProp": "subcategory_name",
+            "valueProp": "subcategory_code"
+          
+          }
+        }
+              
+        ]},
+
+         
+        {
+          "fieldGroupClassName": "display-flex",
+          "fieldGroup": [
+        {
+            "key": "risk_level",
+            "type": "select",
+            "className": "flex-1",
+            "props": {
+              "type": "input",
+              "label": "Risk Level",
+              "options": [
+                {
+                "label": "Yellow",
+                "value": "Yellow"
+                },
+                {
+                  "label": "Red",
+                  "value": "Red"
+                  }
+              ],
+              "required": true
+            }
+          },
+          {
+            "key": "is_reccuring_alert",
+            "type": "select",
+            "className": "flex-1",
+            "props": {
+              "type": "input",
+              "label": "Is it recurring alert?",
+              "options": [
+                {
+                "label": "Yes",
+                "value": true
+                },
+                {
+                  "label": "No",
+                  "value": false
+                  }
+              ],
+              "required": true
+            }
+          }
+         
+  ]
+},
+     
+
+{
+  "fieldGroupClassName": "display-flex",
+  "fieldGroup": [
+      {
+          "key": "is_IT_supportneeded",
+          "type": "select",
+          "className": "flex-1",
+          "props": {
+            "type": "input",
+            "label": "Is IT support needed?",
+            "options": [
+              {
+              "label": "Yes",
+              "value": true
+              },
+              {
+                "label": "No",
+                "value": false
+                }
+            ],
+            "required": true
+          }
+        }
+
+
+  ]}
+  
+  
+           
+        ]
+        
+      },
+     
+        {
+         
+          "props": { "label": "Contact" },
+          "fieldGroup": [
+           
+            {
+                "fieldGroupClassName": "display-flex",
+                "fieldGroup": [
+
+                  {
+                    "type": "input",
+                  "key": "trigger_user_id",
+                  "className": "flex-1",
+                  
+                  "props": {
+                    "label": "Trigger Name",
+                 
+                    "required": true,
+                    "readonly":true,
+                    "onValueChangeUpdate":[ {
+                      "key":"trigger_user_email",
+                      "valueProp":"email_id"
+                    }]                   
+                  }
+                },
+                  
+                      {
+                        "type": "input",
+                        "key": "trigger_user_email",
+                        "className": "flex-1",
+                        "collectionName": "user",
+                        "props": {
+                          "label": "Trigger Email",
+                          "placeholder": "Trigger Email ",
+                          "required": true,
+                          "pattern": "[a-z0-9._%+-]+@[a-z.-]+\\.[a-z]{2,4}$",
+                          "readonly":true
+                        }
+                      }
+                ]},
+
+            {
+                "fieldGroupClassName": "display-flex",
+                "fieldGroup": [
+                  {
+                    "type": "select_dynamic_options",
+                  "key": "pilot_user_id",
+                  "className": "flex-1",
+                  "props": {
+                    "label": "Pilot Name",
+                    "labelPropTemplate": " {{username}}",
+                    "optionsDataSource": {
+                    "collectionName": "user"
+                    
+                    },
+                    "labelProp": "username",
+                    "valueProp": "user_id",
+                    "required": true,
+                    "onValueChangeUpdate":[ {
+                      "key":"pilot_user_email",
+                      "valueProp":"email_id"
+                    }]  
+                   
+                  }
+                },
+                {
+                        "type": "input",
+                        "key": "pilot_user_email",
+                        "className": "flex-1",
+                        "props": {
+                          "label": "Pilot Email",
+                          "placeholder": "Pilot Email",
+                          "required": true,
+                          "pattern": "[a-z0-9._%+-]+@[a-z.-]+\\.[a-z]{2,4}$",
+                          "readonly":true
+                        
+                        }
+                      }
+                ]},
+
+            {
+                "fieldGroupClassName": "display-flex",
+                "fieldGroup": [
+                  {
+                    "type": "select_dynamic_options",
+                  "key": "manager_user_id",
+                  "className": "flex-1",
+                  "props": {
+                    "label": "Manager Name",
+
+                    "labelPropTemplate": " {{username}}",
+                    "optionsDataSource": {
+                    "collectionName": "user"
+                    },
+                    "labelProp": "username",
+                    "valueProp": "user_id",
+                    "required": true,
+                    "onValueChangeUpdate":[ {
+                      "key":"manager_user_email",
+                      "valueProp":"email_id"
+                    }] 
+                  }
+                },
+                      {
+                        "type": "input",
+                        "key": "manager_user_email",
+                        "className": "flex-1",
+                        "props": {
+                          "label": "Manager Email",
+                          "placeholder": "Manager Email",
+                          "required": true,
+                          "pattern": "[a-z0-9._%+-]+@[a-z.-]+\\.[a-z]{2,4}$",
+                          "readonly":true
+                        }
+                      }
+                ]},
+                  
+            {
+              "fieldGroupClassName": "display-flex",
+              "fieldGroup": [
+
+
+                {
+                  "type": "select_dynamic_options",
+                  "key": "consultant_user_id1",
+                "className": "flex-1",
+                "props": {
+                  "label": "Consultant Name",
+                  "labelPropTemplate": " {{username}}",
+                  "optionsDataSource": {
+                  "collectionName": "user"
+                  
+                  },
+                  "labelProp": "username",
+                  "valueProp": "user_id",
+                  "required": true,
+                  "onValueChangeUpdate":[ {
+                    "key":"consultant_user_email1",
+                    "valueProp":"email_id"
+                  }]  
+                 
+                }
+              },
+                
+
+                 
+                    {
+                      "type": "input",
+                      "key": "consultant_user_email1",
+                      "className": "flex-1",
+                      "props": {
+                        "label": "Consultant Email",
+                        "placeholder": "Consultant Email",
+                        "required": true,
+                        "pattern": "[a-z0-9._%+-]+@[a-z.-]+\\.[a-z]{2,4}$"
+                      }
+                    }
+              ]},
+              {
+                "fieldGroupClassName": "display-flex",
+                "fieldGroup": [
+
+
+                  {
+                    "type": "select_dynamic_options",
+                    "key": "consultant_user_id2",
+                  "className": "flex-1",
+                  "props": {
+                    "label": "Consultant Name",
+                    "labelPropTemplate": " {{username}}",
+                    "optionsDataSource": {
+                    "collectionName": "user"
+                    
+                    },
+                    "labelProp": "username",
+                    "valueProp": "user_id",
+                    "required": true,
+                    "onValueChangeUpdate":[ {
+                      "key":"consultant_user_email2",
+                      "valueProp":"email_id"
+                    }]  
+                   
+                  }
+                },
+                  
+  
+                   
+                      {
+                        "type": "input",
+                        "key": "consultant_user_email2",
+                        "className": "flex-1",
+                        "props": {
+                          "label": "Consultant Email",
+                          "placeholder": "Consultant Email",
+                          "required": true,
+                          "pattern": "[a-z0-9._%+-]+@[a-z.-]+\\.[a-z]{2,4}$"
+                        }
+                      }
+                ]},
+
+                {
+                  "fieldGroupClassName": "display-flex",
+                  "fieldGroup": [
+  
+  
+                    {
+                      "type": "select_dynamic_options",
+                      "key": "consultant_user_id3",
+                    "className": "flex-1",
+                    "props": {
+                      "label": "Consultant Name",
+                      "labelPropTemplate": " {{username}}",
+                      "optionsDataSource": {
+                      "collectionName": "user"
+                      
+                      },
+                      "labelProp": "username",
+                      "valueProp": "user_id",
+                      "required": true,
+                      "onValueChangeUpdate":[ {
+                        "key":"consultant_user_email3",
+                        "valueProp":"email_id"
+                      }]  
+                     
+                    }
+                  },
+                    
+    
+                     
+                        {
+                          "type": "input",
+                          "key": "consultant_user_email3",
+                          "className": "flex-1",
+                          "props": {
+                            "label": "Consultant Email",
+                            "placeholder": "Consultant Email",
+                            "required": true,
+                            "pattern": "[a-z0-9._%+-]+@[a-z.-]+\\.[a-z]{2,4}$"
+                          }
+                        }
+                  ]}
+          ]
+        }
+      
+        ]}
+	  ]
+	}
+  }

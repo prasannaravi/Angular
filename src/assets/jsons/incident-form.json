@@ -1,0 +1,1146 @@
+{
+	"pageHeading": "Incident",
+	"formType": "simple",
+  "editMode": "page",
+  "mode":"page",
+  "onCancelRoute":"/list/incident",
+  "keyField":"id",
+  "bind":true,
+	"form": {
+	  "collectionName": "incident",
+    "getDataEndPoint": "incident/filter/id",
+	  "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [ 
+      {
+       
+			  "type": "label_view",
+			  "key": "id",
+			  
+			  "props": {
+				"label": "Incident ID"
+			  },  
+         "expressions": {
+          "hide": "!model.isshow"
+        }
+			}
+    ]},
+
+
+		{
+      "fieldGroupClassName": "display-flex",
+		  "fieldGroup": [ 
+        
+    
+			{
+			  "type": "datetimepicker",
+			  "key": "incident_datetime",
+			  "className": "flex-1",
+			  "props": {
+				"label": "Incident Date & Time",
+				"placeholder": "Incident Date & Time",
+				"required": true
+        
+			  },
+        "expressions": {
+          "props.disabled": "model.isEdit"
+        }
+			},
+      {
+        "type": "input",
+        "key": "short_description",
+        "className": "flex-2",
+        "props": {
+        "label": "Incident Short Description",
+        "pattern": "^[a-zA-Z0-9&>/;,:-_]+( [a-zA-Z0-9&>/;,:-_]+)*$",
+        "placeholder": "Name",
+        "required": true
+        },
+        "expressions": {
+          "props.disabled": "model.isEdit"
+        }
+      }
+		  ]
+		},
+
+
+
+    {
+      "fieldGroupClassName": "display-flex",
+		  "fieldGroup": [
+
+
+        
+            {
+              "type": "select_dynamic_options",
+            "key": "division_code",
+            "className": "flex-1",
+            "props": {
+              "label": "Division",
+              "labelPropTemplate": " {{name}}",
+              "optionsDataSource": {
+              "collectionName": "division"
+              },
+              "labelProp": "name",
+              "valueProp": "division_code",
+              "required": true
+            },
+            "expressions": {
+              "hide":"model.roleId != 'OA'"
+            }
+          }]},{
+            "fieldGroupClassName": "display-flex",
+            "fieldGroup": [
+            {
+                "type": "select_dynamic_options",
+              "key": "site_code",
+              "className": "flex-1",
+              "props": {
+                "label": "Site",
+                "labelPropTemplate": " {{name}}",
+                "optionsDataSource": {
+                "collectionName": "site"
+                },
+                "labelProp": "name",
+                "valueProp": "site_code",
+                "required": true
+              },
+              "expressions": {
+                "hide": "(model.roleId == 'SM'|| model.roleId == 'SU') "
+              }
+              
+             
+            }
+          
+            
+  ]
+},
+{
+  "fieldGroupClassName": "display-flex",
+  "fieldGroup": [
+{
+  "type": "select",
+  "key": "status",
+  "className": "flex-1",
+  "props": {
+    "label": "Status",
+    "options": [
+      {
+        "label": "Open",
+        "value": "Open"
+      },
+      {
+        "label": "Closed",
+        "value": "Closed"
+      }
+    ],
+    "required": true
+  },
+  "expressions": {
+    "hide": "!model.isshow"
+  }
+}]},
+{
+    "type": "tabs",
+   
+    "fieldGroup": [
+      
+      {
+        "props": { "label": "Description" },
+       
+        "fieldGroup": [
+            {
+                "fieldGroupClassName": "display-flex",
+                "fieldGroup": [
+                  {
+                      "type": "html",
+                      "key": "description",
+                      "className": "flex-1",
+                      "props": {
+                      "label": "Incident Description",
+                      "required": true
+                      }
+                    }
+            ]
+          },
+
+          {
+            "fieldGroupClassName": "display-flex",
+            "fieldGroup": [
+    
+     
+            {
+              "type": "select_dynamic_options",
+            "key": "category_code",
+            "className": "flex-1",
+          
+            "props": {
+              "label": "Select Risk Category",
+              "labelPropTemplate": " {{name}}",
+              "optionsDataSource": {
+              "collectionName": "category"
+              },
+              "labelProp": "name",
+              "valueProp": "category_code",
+              "required": true
+            }
+          },
+          {
+          "type": "select_dynamic_options",
+          "key": "subcategory_code",
+          "className": "flex-1",
+          "parentKey":"category_code",
+          "parentCollectionName":"subcategory/filter/category_code",
+          "defaultValue":"",
+          "props": {
+            "label": "Sub-Category",
+            "labelPropTemplate": " {{name}}",
+            "optionsDataSource": {
+            "collectionName": "subcategory",
+            "firstOption":{"name":"None","subcategory_code":""}
+            },
+            "labelProp": "name",
+            "valueProp": "subcategory_code"
+          
+          }
+        }
+              
+        ]},
+
+         
+        {
+          "fieldGroupClassName": "display-flex",
+          "fieldGroup": [
+        {
+            "key": "risk_level",
+            "type": "select",
+            "className": "flex-1",
+            "props": {
+              "type": "input",
+              "label": "Risk Level",
+              "options": [
+                {
+                "label": "Yellow",
+                "value": "Yellow"
+                },
+                {
+                  "label": "Red",
+                  "value": "Red"
+                  }
+              ],
+              "required": true
+            }
+          },
+          {
+            "key": "is_reccuring_alert",
+            "type": "select",
+            "className": "flex-1",
+            "props": {
+              "type": "input",
+              "label": "Is it recurring alert?",
+              "options": [
+                {
+                "label": "Yes",
+                "value": true
+                },
+                {
+                  "label": "No",
+                  "value": false
+                  }
+              ],
+              "required": true
+            }
+          }
+         
+  ]
+},
+     
+
+{
+  "fieldGroupClassName": "display-flex",
+  "fieldGroup": [
+      {
+          "key": "is_IT_support_needed",
+          "type": "select",
+          "className": "flex-1",
+          "props": {
+            "type": "input",
+            "label": "Is IT support needed?",
+            "options": [
+              {
+              "label": "Yes",
+              "value": true
+              },
+              {
+                "label": "No",
+                "value": false
+                }
+            ],
+            "required": true
+          }
+        }
+  ]}  
+        ]
+        
+      },
+     
+        {
+         
+          "props": { "label": "Contact" },
+          "fieldGroup": [
+            {
+              "fieldGroupClassName": "display-flex",
+              "fieldGroup": [
+              
+                {
+                  "type": "multi_select",
+                  "key": "consultants",
+                  "className": "flex-1",
+                  "props": {
+                    "label": "Consultant Name",
+                  
+                    "labelPropTemplate": "{{user_name}}",
+                    "optionsDataSource": {
+                      "collectionName": "user"
+                    },
+                    "labelProp": "user_name",
+                    "valueProp": "user_id",
+                    "required": true
+                  }
+                }
+              ]},
+           
+            {
+                "fieldGroupClassName": "display-flex",
+                "fieldGroup": [
+
+                  {
+                    "type": "input",
+                  "key": "trigger_user_id",
+                  "className": "flex-1",
+                  
+                  "props": {
+                    "label": "Trigger Name",
+                 
+                    "required": true,
+                    "readonly":true
+                                     
+                  }
+                },
+                {
+                  "type": "select_dynamic_options",
+                "key": "pilot_user_id",
+                "className": "flex-1",
+                "props": {
+                  "label": "Pilot Name",
+                  "labelPropTemplate": " {{user_name}}",
+                  "optionsDataSource": {
+                  "collectionName": "user"
+                  
+                  },
+                  "labelProp": "user_name",
+                  "valueProp": "user_id",
+                  "required": true
+                 
+                 
+                }
+              }
+              
+                ]},
+
+           
+
+            {
+                "fieldGroupClassName": "display-flex",
+                "fieldGroup": [
+                  {
+                    "type": "select_dynamic_options",
+                  "key": "manager_user_id",
+                  "className": "flex-1",
+                  "props": {
+                    "label": "Manager Name",
+
+                    "labelPropTemplate": " {{user_name}}",
+                    "optionsDataSource": {
+                    "collectionName": "user"
+                    },
+                    "labelProp": "user_name",
+                    "valueProp": "user_id",
+                    "required": true
+                   
+                  }
+                }
+                 
+
+
+
+                ]}
+               
+                  
+          ]
+        },
+        {
+         
+          "props": { "label": "Impact Details" },
+          "expressions": {
+            "hide": "!model.isshow"
+          },
+         
+          "fieldGroup": [
+
+            
+
+            {
+              "fieldGroupClassName": "display-flex",
+              "fieldGroup": [
+
+                {
+                  "key": "risk_level_principal",
+                  "type": "select",
+                  "className": "flex-1",
+                  "props": {
+                    "type": "input",
+                    "label": "Risk Level Principal",
+                    "options": [
+                      {
+                      "label": "Yellow",
+                      "value": "Yellow"
+                      },
+                      {
+                        "label": "Red",
+                        "value": "Red"
+                        }
+                    ],
+                    "required": true
+                  }
+                },
+              {
+                "type": "select_dynamic_options",
+                "key": "case_id",
+              "className": "flex-1",
+              "props": {
+                "label": "Select the Incident Case",
+                "labelPropTemplate": " {{case_id}}",
+                "optionsDataSource": {
+                "collectionName": "incident_case"
+                
+                },
+                "labelProp": "case_id",
+                "valueProp": "case_id",
+                "required": true
+                
+              }
+            }
+              ]},
+
+              {
+                "fieldGroupClassName": "display-flex",
+                "fieldGroup": [
+              {
+                "type": "input",
+                "key": "other_incident_case_desc",
+                "className": "flex-1",
+                "props": {
+                "label": "Other Incident Case Description",
+                "pattern": "^[a-zA-Z0-9&>/;,:-_]+( [a-zA-Z0-9&>/;,:-_]+)*$",
+                "placeholder": "Other Incident Case Description"
+                
+                }
+              }]},
+                  {
+                    "type": "toggle",
+                    "key": "impact_on_customer",
+                    "props": {
+                      "label": "Impact on Customer?"
+         
+                    }
+                    },
+                  
+                    {
+                      "fieldGroupClassName": "display-flex",
+                      "fieldGroup": [
+                    {
+                      "type": "select_dynamic_options",
+                    "key": "customer_code",
+                    "className": "flex-1",
+                    "props": {
+                      "label": "Select Customer Name",
+                      "labelPropTemplate": " {{name}}",
+                      "optionsDataSource": {
+                      "collectionName": "customer"
+                     
+                      },
+                      "labelProp": "name",
+                      "valueProp": "customer_code",
+                      "required":true
+                     
+                    },
+                    "expressionProperties":{
+                      "hide":"!model.impact_on_customer"
+                      }
+                  },
+                  {
+                    "type": "input",
+                    "key": "component_name",
+                    "className": "flex-1",
+                    "props": {
+                    "label": "Component Name",
+                    "pattern": "^[a-zA-Z0-9&>/;,:-_]+( [a-zA-Z0-9&>/;,:-_]+)*$",
+                    "placeholder": "Component",
+                    "required": true
+                    },
+                    "expressionProperties":{
+                      "hide":"!model.impact_on_customer"
+                      }
+                  }
+                ]},
+                {
+                  "fieldGroupClassName": "display-flex",
+                  "fieldGroup": [
+                    {
+                      "type": "input",
+                      "key": "part_number",
+                      "className": "flex-1",
+                      "props": {
+                      "label": "Part Number",
+                      "pattern": "^[a-zA-Z0-9&>/;,:-_]+( [a-zA-Z0-9&>/;,:-_]+)*$",
+                      "placeholder": "Part Number",
+                      "required": true
+                      },
+                      "expressionProperties":{
+                        "hide":"!model.impact_on_customer"
+                        }
+                    },
+                    {
+                      "type": "datepicker",
+                      "key": "sop_date",
+                      "className": "flex-1",
+                      "props": {
+                      "label": "SOP Date",
+                      "placeholder": "SOP Date",
+                      "required": true
+                      
+                      },
+                      "expressionProperties":{
+                        "hide":"!model.impact_on_customer"
+                        }
+                    }
+
+                  ]},
+               
+                      {
+                        "type": "toggle",
+                        "key": "customer_line_check",
+                        "props": {
+                          "label": "Customer Line Check / Line Stoppage"
+             
+                        }
+                        },
+                
+                        {
+                          "fieldGroupClassName": "display-flex",
+                          "fieldGroup": [
+                      {
+                        "type": "input",
+                        "key": "line_stoppage_duration",
+                        "className": "flex-1",
+                        "props": {
+                        "label": "Line stoppage duration",
+                        "pattern": "^[a-zA-Z0-9&>/;,:-_]+( [a-zA-Z0-9&>/;,:-_]+)*$",
+                        "placeholder": "Line stoppage duration",
+                        "required": true
+                        },
+                        "expressionProperties":{
+                          "hide":"!model.customer_line_check"
+                          }
+                      },
+
+                      {
+                        "type": "input",
+                        "key": "city_equivalent_vehicle",
+                        "className": "flex-1",
+                        "props": {
+                        "label": "City of equivalent vehicle",
+                        "pattern": "^[a-zA-Z0-9&>/;,:-_]+( [a-zA-Z0-9&>/;,:-_]+)*$",
+                        "placeholder": "City of equivalent vehicle",
+                        "required": true
+                        },
+                        "expressionProperties":{
+                          "hide":"!model.customer_line_check"
+                          }
+                      }
+                    ]},
+                    {
+                      
+                          "type": "toggle",
+                          "key": "warranty_alert",
+                          "props": {
+                            "label": "Warranty Alert?"
+               
+                          }
+                    },
+                          {
+                            "fieldGroupClassName": "display-flex",
+                            "fieldGroup": [
+                        {
+                          "type": "input",
+                          "key": "ass_vehicle_defective_parts",
+                          "className": "flex-1",
+                          "props": {
+                          "label": "Ass. vehicle with defective parts",
+                          "pattern": "^[a-zA-Z0-9&>/;,:-_]+( [a-zA-Z0-9&>/;,:-_]+)*$",
+                          "placeholder": "Ass. vehicle with defective parts",
+                          "required": true
+                          },
+                          "expressionProperties":{
+                            "hide":"!model.warranty_alert"
+                            }
+                        },
+  
+                        {
+                          "type": "input",
+                          "key": "supplier_name",
+                          "className": "flex-1",
+                          "props": {
+                          "label": "Supplier Name (if involved)",
+                          "pattern": "^[a-zA-Z0-9&>/;,:-_]+( [a-zA-Z0-9&>/;,:-_]+)*$",
+                          "placeholder": "Supplier Name (if involved)",
+                          "required": true
+                          },
+                          "expressionProperties":{
+                            "hide":"!model.warranty_alert"
+                            }
+                        }
+                      ]},
+                          {
+                            "type": "toggle",
+                            "key": "incomplete_vehicle",
+                            "props": {
+                              "label": "Incomplete vehicle"
+                 
+                            }
+                            },
+                            {
+                              "fieldGroupClassName": "display-flex",
+                              "fieldGroup": [
+                          {
+                            "type": "input",
+                            "key": "incomplete_vehicle_qty",
+                            "className": "flex-1",
+                            "props": {
+                            "label": "Qty. of vehicle built incomplete",
+                            "pattern": "^[a-zA-Z0-9&>/;,:-_]+( [a-zA-Z0-9&>/;,:-_]+)*$",
+                            "placeholder": "Qty. of vehicle built incomplete",
+                            "required": true
+                            },
+                            "expressionProperties":{
+                              "hide":"!model.incomplete_vehicle"
+                              }
+                          }]},
+                              {
+                                "type": "toggle",
+                                "key": "recall",
+                                "props": {
+                                  "label": "Recall campaign or customer has launched investigation for potential recall"
+                     
+                                }
+                                },
+                                {
+                                  "type": "toggle",
+                                  "key": "customer_yard_check",
+                                  "props": {
+                                    "label": "Customer yard check / hold"
+                       
+                                  }
+                                  },
+                                  {
+                                    "type": "toggle",
+                                    "key": "quality_wall",
+                                    "props": {
+                                      "label": "Quality wall placed at Customer"
+                         
+                                    }
+                                    },
+                                        {
+                                          "type": "toggle",
+                                          "key": "other_impacts",
+                                          "props": {
+                                            "label": "Others"
+                               
+                                          }
+                                          },
+                                          {
+                                            "fieldGroupClassName": "display-flex",
+                                            "fieldGroup": [
+                                          
+                                              {
+                                                "type": "html",
+                                                "key": "impact_others_desc",
+                                                "className": "flex-2",
+                                                "props": {
+                                                "label": "Description"
+                                              
+                                                },
+                                                "expressions":{
+                                                  "hide":"!model.other_impacts"
+                                                }
+                                              }
+                                          
+                                          ]
+                                          },
+                                          {
+                                            "fieldGroupClassName": "display-flex",
+                                            "fieldGroup": [
+                                          
+                                              {
+                                                "type": "html",
+                                                "key": "reason_or_cause",
+                                                "className": "flex-2",
+                                                "props": {
+                                                "label": "Reason / cause"
+                                                }
+                                              }
+                                          ]
+                                          },
+                                          {
+                                            "fieldGroupClassName": "display-flex",
+                                            "fieldGroup": [
+                                              {
+                                                "type": "html",
+                                                "key": "additional_details",
+                                                "className": "flex-2",
+                                                "props": {
+                                                "label": "Additional details (if any)"
+                                                }}
+                                          ]
+                                          }
+
+          ]},
+          {
+         
+            "props": { "label": "C.A.R.S" },
+            "expressions": {
+              "hide": "!model.isshow"
+            },
+           
+            "fieldGroup": [
+
+
+
+            {
+              "fieldGroupClassName": "display-flex",
+              "fieldGroup": [
+
+                {
+                  "key": "root_cause",
+                  "type": "select",
+                  "className": "flex-2",
+                  "props": {
+                    "type": "input",
+                    "label": "Select the root cause",
+                    "options": [
+                      {
+                      "label": "Design",
+                      "value": "Design"
+                      },
+                      {
+                        "label": "Process",
+                        "value": "Process"
+                        },
+                        {
+                          "label": "Supplier",
+                          "value": "Supplier"
+                          },
+                          {
+                            "label": "etc",
+                            "value": "etc"
+                            }
+                    ],
+                    "required": true
+                  }
+                },
+                {
+                  "type": "input",
+                  "key": "root_cause_desc",
+                  "className": "flex-2",
+                  "props": {
+                  "label": "Please describe the cause in 4 words",
+                  "pattern": "^[a-zA-Z0-9&>/;,:-_]+( [a-zA-Z0-9&>/;,:-_]+)*$",
+                  "placeholder": "Please describe the cause in 4 words",
+                  "required": true
+                  }
+                  
+                }
+                ]},
+                {
+                  "fieldGroupClassName": "display-flex",
+                  "fieldGroup": [
+                    {
+                      "type": "label_view",
+                      "className": "flex-1",
+                      "props": {
+                      "label": "Containment"
+                      
+                      }
+                      
+                    },
+                    {
+                      "type": "datepicker",
+                      "key": "cont_target_date",
+                      "className": "flex-2",
+                      "props": {
+                      "label": "Target Date",
+                      "placeholder": "Target Date",
+                      "required": true
+                      
+                      }
+                    },
+                    {
+                      "type": "datepicker",
+                      "key": "cont_real_date",
+                      "className": "flex-2",
+                      "props": {
+                      "label": "Real Date",
+                      "placeholder": "Real Date",
+                      "required": true
+                      
+                      }
+                    },
+                    {
+                      "key": "cont_validation_status",
+                      "type": "select",
+                      "className": "flex-2",
+                      "props": {
+                        "type": "input",
+                        "label": "Validation status",
+                        "options": [
+                          {
+                          "label": "Yes",
+                          "value": true
+                          },
+                          {
+                            "label": "No",
+                            "value": false
+                            }
+                        ],
+                        "required": true
+                      }
+                    },
+                    {
+                      "type": "datepicker",
+                      "key": "cont_validated_on",
+                      "className": "flex-2",
+                      "props": {
+                      "label": "Validated On",
+                      "placeholder": "Validated On",
+                      "required": true
+                      
+                      }
+                    },
+                    {
+                      "type": "input",
+                      "key": "cont_validated_by",
+                      "className": "flex-2",
+                      "props": {
+                      "label": "Validated By",
+                      "placeholder": "Validated By",
+                      "required": true
+                      }
+                    }
+
+                  ]},
+                  {
+                    "fieldGroupClassName": "display-flex",
+                    "fieldGroup": [
+                      {
+                        "type": "label_view",
+                        "className": "flex-1",
+                        "props": {
+                        "label": "Action"
+                        }
+                      },
+                      {
+                        "type": "datepicker",
+                        "key": "action_target_date",
+                        "className": "flex-2",
+                        "props": {
+                        "label": "Target Date",
+                        "placeholder": "Target Date",
+                        "required": true
+                        
+                        }
+                      },
+                      {
+                        "type": "datepicker",
+                        "key": "action_real_date",
+                        "className": "flex-2",
+                        "props": {
+                        "label": "Real Date",
+                        "placeholder": "Real Date",
+                        "required": true
+                        
+                        }
+                      },
+                      {
+                        "key": "action_validation_status",
+                        "type": "select",
+                        "className": "flex-2",
+                        "props": {
+                          "type": "input",
+                          "label": "Validation status",
+                          "options": [
+                            {
+                            "label": "Yes",
+                            "value": true
+                            },
+                            {
+                              "label": "No",
+                              "value": false
+                              }
+                          ],
+                          "required": true
+                        }
+                      },
+                      {
+                        "type": "datepicker",
+                        "key": "action_validated_on",
+                        "className": "flex-2",
+                        "props": {
+                        "label": "Validated On",
+                        "placeholder": "Validated On",
+                        "required": true
+                        
+                        }
+                      },
+                      {
+                        "type": "input",
+                        "key": "action_validated_by",
+                        "className": "flex-2",
+                        "props": {
+                        "label": "Validated By",
+                        "placeholder": "Validated By",
+                        "required": true
+                        }
+                      }
+  
+                    ]},
+                    {
+                      "fieldGroupClassName": "display-flex",
+                      "fieldGroup": [
+                        {
+                          "type": "label_view",
+                          "className": "flex-1",
+                          "props": {
+                          "label": "Robustness"
+                          }
+                        },
+                        {
+                          "type": "datepicker",
+                          "key": "robust_target_date",
+                          "className": "flex-2",
+                          "props": {
+                          "label": "Target Date",
+                          "placeholder": "Target Date",
+                          "required": true
+                          
+                          }
+                        },
+                        {
+                          "type": "datepicker",
+                          "key": "robust_real_date",
+                          "className": "flex-2",
+                          "props": {
+                          "label": "Real Date",
+                          "placeholder": "Real Date",
+                          "required": true
+                          
+                          }
+                        },
+                        {
+                          "key": "robust_validation_status",
+                          "type": "select",
+                          "className": "flex-2",
+                          "props": {
+                            "type": "input",
+                            "label": "Validation status",
+                            "options": [
+                              {
+                              "label": "Yes",
+                              "value": true
+                              },
+                              {
+                                "label": "No",
+                                "value": false
+                                }
+                            ],
+                            "required": true
+                          }
+                        },
+                        {
+                          "type": "datepicker",
+                          "key": "robust_validated_on",
+                          "className": "flex-2",
+                          "props": {
+                          "label": "Validated On",
+                          "placeholder": "Validated On",
+                          "required": true
+                          
+                          }
+                        },
+                        {
+                          "type": "input",
+                          "key": "robust_validated_by",
+                          "className": "flex-2",
+                          "props": {
+                          "label": "Validated By",
+                          "placeholder": "Validated By",
+                          "required": true
+                          }
+                        }
+    
+                      ]},
+                      {
+                        "fieldGroupClassName": "display-flex",
+                        "fieldGroup": [
+                          {
+                            "type": "label_view",
+                            "className": "flex-1",
+                            "props": {
+                            "label": "Standardisation"
+                            }
+                          },
+                          {
+                            "type": "datepicker",
+                            "key": "std_target_date",
+                            "className": "flex-2",
+                            "props": {
+                            "label": "Target Date",
+                            "placeholder": "Target Date",
+                            "required": true
+                            
+                            }
+                          },
+                          {
+                            "type": "datepicker",
+                            "key": "std_real_date",
+                            "className": "flex-2",
+                            "props": {
+                            "label": "Real Date",
+                            "placeholder": "Real Date",
+                            "required": true
+                            
+                            }
+                          },
+                          {
+                            "key": "std_validation_status",
+                            "type": "select",
+                            "className": "flex-2",
+                            "props": {
+                              "type": "input",
+                              "label": "Validation status",
+                              "options": [
+                                {
+                                "label": "Yes",
+                                "value": true
+                                },
+                                {
+                                  "label": "No",
+                                  "value": false
+                                  }
+                              ],
+                              "required": true
+                            }
+                          },
+                          {
+                            "type": "datepicker",
+                            "key": "std_validated_on",
+                            "className": "flex-2",
+                            "props": {
+                            "label": "Validated On",
+                            "placeholder": "Validated On",
+                            "required": true
+                            
+                            }
+                          },
+                          {
+                            "type": "input",
+                            "key": "std_validated_by",
+                            "className": "flex-2",
+                            "props": {
+                            "label": "Validated By",
+                            "placeholder": "Validated By",
+                            "required": true
+                            }
+                          }
+      
+                        ]},
+                        {
+                          "fieldGroupClassName": "display-flex",
+                          "fieldGroup": [
+                            {
+                              "type": "input",
+                              "key": "estimated_cost",
+                              
+                              "props": {
+                              "label": "Estimation Cost",
+                              "placeholder": "Estimation Cost",
+                              "required": true
+                              }
+                            }
+
+                          ]},
+                          {
+                            "fieldGroupClassName": "display-flex",
+                            "fieldGroup": [
+                              {
+                                "type": "input",
+                                "key": "actual_cost",
+                                "props": {
+                                "label": "Actual Cost",
+                                "placeholder": "Actual Cost",
+                                "required": true
+                                }
+                              }
+  
+                            ]}
+
+            ]},
+            {
+         
+              "props": { "label": "QRCI & Leason Learned Files" },
+              "expressions": {
+                "hide": "!model.isshow"
+              },
+              "fieldGroup": [
+
+                {
+                  "fieldGroupClassName": "display-flex",
+                  "fieldGroup": [
+                    {
+                      "type": "label_view",
+                      "className": "flex-1",
+                      "props": {
+                      "label": "QRCI files"
+                      
+                      }
+                      
+                    },
+                    {
+                      "type": "label_view",
+                      "className": "flex-1",
+                      "props": {
+                      "label": "Lesson Learned "
+                      
+                      }
+                      
+                    }]}
+
+              ]}
+
+
+
+        ]}
+	  ]
+	}
+  }

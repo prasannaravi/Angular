@@ -1,0 +1,85 @@
+{
+	"pageHeading": "Company",
+	"collectionName": "organization",
+	"show":true,
+	"editMode":"popup",
+	"showdefaultFilter":"yes",
+  "actions":[
+		{
+			"label":"Edit",
+			"icon":"edit",
+			"method":"edit()"
+		},
+		{
+			"label":"View",
+			"icon":"visibility",
+			"method":"view()"
+		},
+		{
+			"label":"Delete",
+			"icon":"delete",
+			"method":"delete()"
+		}
+		],
+
+	"columnDefs": [
+
+        {
+			"headerName": "Company Code",
+			"field": "id",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Company Name",
+			"field": "name",
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Address",
+			"field": "address",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+
+    	{
+			"headerName": "City",
+			"field": "city",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+
+		},
+    	{
+			"headerName": "State",
+			"field": "state",
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Pin Code",
+			"field": "pincode",
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"type":"rightAligned",
+			"headerName": "Actions",
+			"cellRenderer": "buttonRenderer",
+			"cellRendererParams": {
+			  "onClick": "this.onBtnClick1.bind(this)",
+			  "label": "Click 1"
+			}
+		  }
+	],
+
+	"filterOptions":[
+	{
+	"type":"text",
+	"columnName": "platform",
+	"label":"Platform",
+	"operator": "$eq",
+	"dataSource":"list",
+	"multiSelection": false,
+	"labelProp":"label",
+	"valueProp":"value"
+	}
+	]
+	}

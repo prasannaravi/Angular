@@ -1,0 +1,135 @@
+{
+	"pageHeading": "Comapany",
+	"formType": "simple",
+	"form": {
+	  "collectionName": "organization",
+	  "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+      {
+			  "type": "label_view",
+			  "key": "id",
+        "className": "flex-1",
+			  "props": {
+				"label": "Company ID",
+        "readonly":true
+			  }
+      },
+      {
+        "type": "label_view",
+        "key": "name",
+        "className": "flex-1",
+        "props": {
+        "label": "Company Name"
+        }
+      }
+
+    ]
+  },
+  {
+    "fieldGroupClassName": "display-flex",
+    "fieldGroup": [
+  {
+    "type": "label_view",
+    "key": "contact_no",
+    "className": "flex-1",
+    "props": {
+    "label": "Contact number",
+    "readonly":true
+    }
+  },
+  {
+    "type": "label_view",
+    "key": "email_id",
+    "className": "flex-1",
+    "props": {
+    "label": "email ID"
+    }
+  }
+
+]
+},
+
+        {
+          "fieldGroupClassName": "display-flex",
+          "fieldGroup": [
+            {
+              "type": "label_view",
+              "key": "address",
+              "className": "flex-1",
+              "props": {
+                "label": "Address"
+              }
+            },
+
+
+            {
+              "key": "city",
+              "type": "label_view",
+              "className": "flex-1",
+              "props": {
+
+                "label": "City"
+
+              }
+            }
+
+      ]
+    },
+          {
+            "fieldGroupClassName": "display-flex",
+            "fieldGroup": [
+              {
+                "type": "label_view",
+                "key": "state",
+                "className": "flex-1",
+                "props": {
+                  "label": "State"
+                }
+              },
+
+
+              {
+                "key": "pincode",
+                "type": "label_view",
+                "className": "flex-1",
+                "props": {
+
+                  "label": "Pin code"
+
+                }
+              }
+
+        ]
+      },
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+
+          {
+            "key": "country",
+            "type": "label_view",
+            "className": "flex-1",
+            "props": {
+
+              "label": "Country"
+
+            }
+          },
+          {
+            "key": "region",
+            "type": "label_view",
+            "className": "flex-1",
+            "props": {
+
+              "label": "Region"
+
+            }
+          }
+    ]}
+
+
+	  ]
+	}
+  }

@@ -1,0 +1,79 @@
+{
+	"pageHeading": "Category",
+	"collectionName": "category",
+	"show":true,
+  "edit_mode":"popup",
+
+
+
+
+
+	"actions":[
+		{
+			"label":"Edit",
+			"icon":"edit",
+			"method":"edit()"
+		},
+		{
+			"label":"View",
+			"icon":"visibility",
+			"method":"view()"
+		},
+		{
+			"label":"Delete",
+			"icon":"delete",
+			"method":"delete()"
+		}
+		],
+
+
+	"columnDefs": [
+               {
+			"headerName": "Category ID",
+			"field": "category_code",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Category Name",
+			"field": "name",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Division",
+			"field": "division_name",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Risk level principal yellow",
+			"field": "risk_level_principal_yellow",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Risk level principal red",
+			"field": "risk_level_principal_red",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+	
+
+
+
+		{
+			"type":"rightAligned",
+            "headerName": "Actions",
+            "cellRenderer": "buttonRenderer",
+            "cellRendererParams": {
+              "onClick": "this.onBtnClick1.bind(this)",
+              "label": "Click 1"
+            }
+          }
+
+
+	]
+
+}
+

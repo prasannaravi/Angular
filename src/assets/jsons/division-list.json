@@ -1,0 +1,52 @@
+{
+	"pageHeading": "Division",
+	"collectionName": "division",
+	"show":true,
+  	"editMode":"popup",
+	  "screenWidth":"800px",
+
+
+	"actions":[
+		{
+			"label":"Edit",
+			"icon":"edit",
+			"method":"edit()"
+		},
+		{
+			"label":"View",
+			"icon":"visibility",
+			"method":"view()"
+		},
+		{
+			"label":"Delete",
+			"icon":"delete",
+			"method":"delete()"
+		}
+		],
+
+	"columnDefs": [
+        {
+			"headerName": "Division Code",
+			"field": "division_code",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		{
+			"headerName": "Division Name",
+			"field": "name",
+			"sortable":true,
+			"filter": "agTextColumnFilter"
+		},
+		
+		{
+			"type":"rightAligned",
+            "headerName": "Actions",
+            "cellRenderer": "buttonRenderer",
+            "cellRendererParams": {
+              "onClick": "this.onBtnClick1.bind(this)",
+              "label": "Click 1"
+            }
+          }
+	]
+}
+

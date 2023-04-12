@@ -1,0 +1,70 @@
+
+
+{
+	"pageHeading": "User Role",
+	"formType": "simple",
+	"form": {
+    "collectionName": "userrole",
+	  "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+          {
+            "type": "label_view",
+            "key": "id",
+            "className": "flex-1",
+            "props": {
+            "label": "User Role Id",
+            "readonly":true
+            }
+          }
+       
+
+    ]
+  },
+  {
+    "fieldGroupClassName": "display-flex",
+    "fieldGroup": [
+      {
+        "type": "label_view",
+        "key": "name",
+        "className": "flex-1",
+        "props": {
+        "label": "Name"
+        }
+      }
+    ]},
+    {
+      "fieldGroupClassName": "display-flex",
+      "fieldGroup": [
+        {
+          "type": "label_view",
+          "key": "hierarchy_level",
+          "className": "flex-1",
+          "props": {
+          "label": "Hierarchy Level"
+          }
+        }
+      ]},
+
+        {
+          "fieldGroupClassName": "display-flex",
+          "fieldGroup": [
+         
+            {
+              "type": "label_view",
+              "key": "role_type",
+              "className": "flex-1",
+              "props": {
+              "label": "Role Type"
+              }
+            }
+           ]}
+         
+
+
+	  ]
+	}
+
+  }
+

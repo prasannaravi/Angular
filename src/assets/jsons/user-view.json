@@ -1,0 +1,123 @@
+
+
+
+{
+	"pageHeading": "User",
+	"formType": "simple",
+	"form": {
+	  "collectionName": "user",
+	  "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+      {
+			  "type": "label_view",
+			  "key": "user_id",
+        "className": "flex-1",
+			  "props": {
+				"label": "Login User Name",
+        "readonly":true
+			  }
+      },
+      {
+        "type": "label_view",
+        "key": "user_name",
+        "className": "flex-1",
+        "props": {
+        "label": "Display Name"
+        }
+      }
+     
+
+    ]
+  },
+
+        
+           {
+            "fieldGroupClassName": "display-flex",
+            "fieldGroup": [
+             
+              {
+                "type": "label_view",
+                "key": "is_alert_security_visible", 
+                "className": "flex-1",
+                "props": {
+                "label": "Is alert security visible"
+                }
+              },
+              {
+                "type": "label_view",
+                "key": "UserConfig",
+                "className": "flex-1",
+                "props": {
+                    "label": "Visibililty restriction by alert category"
+                }
+              }
+            
+             ]},
+             {
+                "fieldGroupClassName": "display-flex",
+                "fieldGroup": [
+                
+                  {
+                    "type": "label_view",
+                    "key": "email_id",
+                    "className": "flex-1",
+                    "props": {
+                    "label": "Email ID"
+                    }
+                  },
+                  {
+                    "type": "label_view",
+                    "key": "contact_no",
+                    "className": "flex-1",
+                    "props": {
+                        "label": "Contact Number"
+                    }
+                  }
+                
+                 ]},
+                 {
+                    "fieldGroupClassName": "display-flex",
+                    "fieldGroup": [
+                    
+                      {
+                        "type": "label_view",
+                        "key": "role_id",
+                        "className": "flex-1",
+                        "props": {
+                            "label": "Role"
+                        }
+                      },
+                      {
+                        "type": "label_view",
+                        "key": "division.name",
+                        "className": "flex-1",
+                        "props": {
+                        "label": "division"
+                        },
+                        "expressions": {
+                          "hide": "!(model.role_id == 'BM' || model.role_id == 'BU')"
+                        }
+                      },
+                      {
+                        "type": "label_view",
+                        "key": "site.name",
+                        "className": "flex-1",
+                        "props": {
+                            "label": "Site"
+                        },
+                        "expressions": {
+                          "hide": "!(model.role_id == 'SM' || model.role_id == 'SU')"
+                        }
+                      }
+                      
+                    
+                     ]}
+                   
+                      
+
+	  ]
+	}
+
+  }

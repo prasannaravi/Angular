@@ -1,0 +1,102 @@
+
+
+
+{
+	"pageHeading": "Category",
+	"formType": "simple",
+	"form": {
+	  "collectionName": "category",
+	  "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+      {
+			  "type": "label_view",
+			  "key": "category_code",
+        "className": "flex-1",
+			  "props": {
+				"label": "Category code",
+        "readonly":true
+			  }
+      },
+      {
+        "type": "label_view",
+        "key": "name",
+        "className": "flex-1",
+        "props": {
+        "label": "Category Name"
+        }
+      }
+
+    ]
+  },
+
+        {
+          "fieldGroupClassName": "display-flex",
+          "fieldGroup": [
+            {
+              "type": "label_view",
+              "key": "division.name",
+              "className": "flex-1",
+              "props": {
+              "label": "Division"
+              }
+            },
+            {
+              "type": "label_view",
+              "key": "cars_follow_up",
+              "className": "flex-1",
+              "props": {
+              "label": "CARS follow up"
+              }
+            }
+          
+           ]},
+           {
+            "fieldGroupClassName": "display-flex",
+            "fieldGroup": [
+             
+              {
+                "type": "label_view",
+                "key": "lls",
+                "className": "flex-1",
+                "props": {
+                "label": "Lesson learned "
+                }
+              }
+            ]},
+           {
+            "fieldGroupClassName": "display-flex",
+            "fieldGroup": [
+              {
+                "type": "label_view",
+                "key": "risk_level_principal_yellow",
+                "className": "flex-1",
+                "props": {
+                "label": "Risk level principal yellow"
+                }
+              }
+             
+            
+             ]},
+             {
+              "fieldGroupClassName": "display-flex",
+              "fieldGroup": [
+              
+                {
+                  "type": "label_view",
+                  "key": "risk_level_principal_red",
+                  "className": "flex-1",
+                  "props": {
+                  "label": "Risk level principal red"
+                  }
+                }
+              
+               ]} 
+               
+
+
+	  ]
+	}
+
+  }

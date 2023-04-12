@@ -1,0 +1,78 @@
+{
+	"pageHeading": "Division",
+	"formType": "simple",
+	"form": {
+	  "collectionName": "division",
+	  "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+      {
+			  "type": "label_view",
+			  "key": "division_code",
+        "className": "flex-1",
+			  "props": {
+				"label": "Division Code",
+        "readonly":true
+			  }
+      },
+      {
+        "type": "label_view",
+        "key": "name",
+        "className": "flex-1",
+        "props": {
+        "label": "Division Name"
+        }
+      }
+
+    ]
+  },
+
+        {
+          "fieldGroupClassName": "display-flex",
+          "fieldGroup": [
+            
+            {
+              "type": "Bussiness Administrator Name",
+              "key": "admin_name",
+              "className": "flex-1",
+              "props": {
+              "label": "Contact Name"
+              }
+            },
+            {
+              "type": "label_view",
+              "key": "contact_no",
+              "className": "flex-1",
+              "props": {
+              "label": "Contact No"
+              }
+                }
+            ]},
+                {
+                  "fieldGroupClassName": "display-flex",
+                  "fieldGroup": [
+                    {
+                      "type": "label_view",
+                      "key": "email",
+                      "className": "flex-1",
+                      "props": {
+                        "label": "E-Mail"
+                      }
+                    }
+
+          
+            
+
+
+        
+
+      ]
+    }
+     
+    
+
+
+	  ]
+	}
+  }

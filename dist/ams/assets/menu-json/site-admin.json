@@ -1,0 +1,7 @@
+[
+	{
+		"displayName": "Incident",
+		"iconName": "assignment_ind",
+		"route": "/list/incident"
+	}
+]

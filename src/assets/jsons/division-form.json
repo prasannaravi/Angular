@@ -1,0 +1,43 @@
+{
+	"pageHeading": "Division",
+	"formType": "simple",
+  "addEditMode": "popup",
+  "popupWidth": "400px",
+  "keyField":"division_code",
+	"form": {
+	  "collectionName": "division",
+    "getDataEndPoint": "division/filter/division_code",
+	  "fields": [
+			{
+			  "type": "input",
+			  "key": "division_code",
+			  "props": {
+				"label": "Division Code",
+				"placeholder": "Code",
+				"required": true,
+        "pattern": "^[a-zA-Z0-9-_]*$"
+			  }
+			},
+      {
+        "type": "input",
+        "key": "name",
+        "props": {
+        "label": "Division Name",
+        "pattern": "^[a-zA-Z0-9&>/;,:-_]+( [a-zA-Z0-9&>/;,:-_]+)*$",
+        "placeholder": "Name",
+        "required": true
+        }
+      },
+      {
+        "type": "input",
+        "key": "notification_emails",
+        "props": {
+        "label": "Notification Email",
+        "pattern": "[a-z0-9._%+-]+@[a-z.-]+\\.[a-z]{2,4}$",
+        "placeholder": "Name",
+        "required": true
+        }
+      }
+    ]
+  }
+}

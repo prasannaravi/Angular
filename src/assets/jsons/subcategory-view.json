@@ -1,0 +1,108 @@
+
+
+
+{
+	"pageHeading": "Sub-Category",
+	"formType": "simple",
+	"form": {
+	  "collectionName": "subcategory",
+	  "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+
+        
+      {
+			  "type": "label_view",
+			  "key": "subcategory_code",
+        "className": "flex-1",
+			  "props": {
+          "label": "Sub-Category Code",
+        "readonly":true
+			  }
+      },
+      {
+        "type": "label_view",
+        "key": "name",
+        "className": "flex-1",
+        "props": {
+          "label": "Sub-Category Name",
+          "readonly":true
+        }
+      }
+    
+
+    ]
+  },
+  {
+    "fieldGroupClassName": "display-flex",
+    "fieldGroup": [
+      {
+        "type": "label_view",
+        "key": "category.name",
+        "className": "flex-1",
+        "props": {
+          "label": "Category ",
+          "readonly":true
+        }
+      },
+      {
+        "type": "label_view",
+        "key": "division.name",
+        "className": "flex-1",
+        "props": {
+          "label": "Division",
+          "readonly":true
+        }
+      }
+    
+    ]},
+    {
+      "fieldGroupClassName": "display-flex",
+      "fieldGroup": [
+        {
+          "type": "label_view",
+          "key": "pilot_user.user_name",
+          "className": "flex-1",
+          "props": {
+            "label": "Pilot Name",
+            "readonly":true
+          }
+        },
+          
+        {
+          "type": "label_view",
+          "key": "red_validator_user.user_name",
+          "className": "flex-1",
+          "props": {
+            "label": "Red Validator Name",
+            "readonly":true
+          }
+        }
+       
+       
+
+      ]},
+        
+           {
+            "fieldGroupClassName": "display-flex",
+            "fieldGroup": [
+            
+              {
+                "type": "label_view",
+                "key": "yellow_validator_user.user_name",
+                "className": "flex-1",
+                "props": {
+                  "label": "Yellow Validator Name",
+                  "readonly":true
+                }
+              }
+            
+             ]}
+           
+
+
+	  ]
+	}
+
+  }

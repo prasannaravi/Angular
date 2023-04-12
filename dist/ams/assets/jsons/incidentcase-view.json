@@ -1,0 +1,82 @@
+{
+	"pageHeading": "Incident Case",
+	"formType": "simple",
+	"form": {
+	  "collectionName": "incidentcase",
+	  "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+      {
+			  "type": "label_view",
+			  "key": "incidentcase_id",
+        "className": "flex-1",
+			  "props": {
+				"label": "Incident Case ID",
+        "readonly":true
+			  }
+      },
+      {
+        "type": "label_view",
+        "key": "division_name",
+        "className": "flex-1",
+        "props": {
+        "label": "Division"
+        }
+      }
+
+    ]
+  },
+
+        {
+          "fieldGroupClassName": "display-flex",
+          "fieldGroup": [
+            {
+              "type": "label_view",
+              "key": "category_name",
+              "className": "flex-1",
+              "props": {
+              "label": "Category"
+              }
+            },
+            {
+              "type": "label_view",
+              "key": "subcategory_name",
+              "className": "flex-1",
+              "props": {
+              "label": "Sub Category"
+              }
+            }
+            ]},
+                {
+                  "fieldGroupClassName": "display-flex",
+                  "fieldGroup": [
+                    {
+                      "type": "label_view",
+                      "key": "alert_level",
+                      "className": "flex-1",
+                      "props": {
+                      "label": "Alert Level"
+                      }
+                        },
+            {
+              "type": "label_view",
+              "key": "description",
+              "className": "flex-1",
+              "props": {
+                "label": "Description"
+              }
+            }
+
+
+        
+
+      ]
+    }
+    
+     
+
+
+	  ]
+	}
+  }

@@ -1,0 +1,72 @@
+
+
+
+{
+	"pageHeading": "Customer",
+	"formType": "simple",
+	"form": {
+	  "collectionName": "customer",
+	  "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+      {
+			  "type": "label_view",
+              "key": "customer_code",
+        "className": "flex-1",
+			  "props": {
+                "label": "Customer Code",
+        "readonly":true
+			  }
+      },
+      {
+        "type": "label_view",
+        "key": "name",
+        "className": "flex-1",
+        "props": {
+        "label": "Customer Name"
+        }
+      }
+
+    ]
+  },
+
+        {
+          "fieldGroupClassName": "display-flex",
+          "fieldGroup": [
+            {
+              "type": "label_view",
+              "key": "email",
+              "className": "flex-1",
+              "props": {
+              "label": "Email"
+              }
+            },
+            {
+              "type": "label_view",
+              "key": "contact_no",
+              "className": "flex-1",
+              "props": {
+              "label": "contact Number"
+              }
+            }
+           ]},
+           {
+            "fieldGroupClassName": "display-flex",
+            "fieldGroup": [
+              {
+                "type": "label_view",
+                "key": "div_name",
+                "className": "flex-1",
+                "props": {
+                "label": "Division"
+                }
+              }
+            
+             ]}
+
+
+	  ]
+	}
+
+  }

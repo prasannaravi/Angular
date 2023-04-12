@@ -1,0 +1,185 @@
+{
+  "pageHeading": "Site",
+  "formType": "simple",
+  "addEditMode": "popup",
+  "keyField":"site_code",
+  "bind":"org_id",
+  "form": {
+    "collectionName": "site",
+    "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+          {
+            "type": "input",
+            "key": "site_code",
+            "className": "flex-1",
+            "props": {
+              "label": "Site ID",
+              "placeholder": "Site ID",
+              "required": true,
+              "pattern": "^[a-zA-Z0-9-_]*$"
+            }
+          },
+          {
+            "type": "input",
+            "key": "name",
+            "className": "flex-1",
+            "props": {
+              "label": "Site Name",
+              "pattern": "^[a-zA-Z0-9&>/;,:-_]+( [a-zA-Z0-9&>/;,:-_]+)*$",
+              "placeholder": "Site Name",
+              "required": true
+            }
+          }
+        ]
+      },
+
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+          
+
+
+
+          {
+            "type": "select_dynamic_options",
+          "key": "division_code",
+          "className": "flex-1",
+          "props": {
+            "label": "Division",
+            "labelPropTemplate": " {{name}}",
+            "optionsDataSource": {
+            "collectionName": "division"
+            },
+            "labelProp": "name",
+            "valueProp": "division_code",
+            "required": true
+          }
+        },
+        
+        {
+          "type": "select_dynamic_options",
+        "key": "site_manager_id",
+        "className": "flex-1",
+        "props": {
+          "label": "Site Admin",
+          "labelPropTemplate": " {{username}}",
+          "optionsDataSource": {
+          "collectionName": "user"
+          },
+          "labelProp": "username",
+          "valueProp": "user_id",
+          "required": true
+        }
+      }
+          
+
+        ]
+      },
+      
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+
+          {
+            "key": "address",
+            "type": "input",
+            "className": "flex-1",
+            "props": {
+              "type": "input",
+              "label": "Address",
+              "pattern": "^([A-Za-z0-9()#,.-]+ )+[A-Za-z0-9()#,.-]+$|^[A-Za-z0-9#(),.-]+$",
+              "required": true
+            }
+          },
+          {
+            "key": "city",
+            "type": "input",
+            "className": "flex-1",
+            "props": {
+              "type": "input",
+              "pattern": "^[a-zA-Z_]+( [a-zA-Z_]+)*$",
+              "label": "City",
+              "required": true
+            }
+          }
+        ]},
+
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+
+          {
+            "type": "select",
+            "key": "state",
+            "className": "flex-1",
+            "props": {
+            "label": "State",
+            "options": [
+              {
+                "label": "TamilNadu",
+                "value": "TamilNadu"
+                },
+                {
+                  "label": "Kerala",
+                  "value": "kerala"
+                  },
+                  {
+                    "label": "Andhra pradesh",
+                    "value": "andhrapradesh"
+                    },
+                    {
+                      "label": "Karnataka",
+                      "value": "karnataka"
+                      },
+                      {
+                        "label": "Madhya pradesh",
+                        "value": "madhyapradesh"
+                        },
+                        {
+                          "label": "Uttar pradesh",
+                          "value": "uttarpradesh"
+                          }
+            ],
+            "required": true
+            }
+          },
+          {
+            "key": "pincode",
+            "type": "fixednumber",
+            "className": "flex-1",
+            "props": {
+              "label": "Pincode",
+              "pattern":"[0-9]{6}",
+              "maxLength":6,
+              "required": true
+            }
+          }
+        ]
+      },
+          {
+            "fieldGroupClassName": "display-flex",
+            "fieldGroup": [
+
+              {
+                "key": "country",
+                "type": "select",
+                "className": "flex-1",
+                "props": {
+                  "type": "input",
+                  "label": "Country",
+                  "options": [
+                    {
+                    "label": "India",
+                    "value": "India"
+                    }
+                  ],
+                  "required": true
+                }
+              }
+            ]
+          }
+        ]
+  }
+}

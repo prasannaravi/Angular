@@ -1,0 +1,125 @@
+
+
+
+{
+	"pageHeading": "User",
+	"formType": "simple",
+	"form": {
+	  "collectionName": "user",
+	  "fields": [
+      {
+        "fieldGroupClassName": "display-flex",
+        "fieldGroup": [
+      {
+			  "type": "label_view",
+			  "key": "user_id",
+        "className": "flex-1",
+			  "props": {
+				"label": "User Id",
+        "readonly":true
+			  }
+      }
+     
+
+    ]
+  },
+
+        {
+          "fieldGroupClassName": "display-flex",
+          "fieldGroup": [
+            {
+              "type": "label_view",
+              "key": "org_id",
+              "className": "flex-1",
+              "props": {
+              "label": "Organization"
+              }
+            }
+         
+           ]},
+           {
+            "fieldGroupClassName": "display-flex",
+            "fieldGroup": [
+             
+              {
+                "type": "label_view",
+                "key": "is_alert_security_visible",
+                "className": "flex-1",
+                "props": {
+                "label": "Is alert security visible"
+                }
+              }
+            
+             ]},
+             {
+                "fieldGroupClassName": "display-flex",
+                "fieldGroup": [
+                  {
+                    "type": "label_view",
+                    "key": "user_category",
+                    "className": "flex-1",
+                    "props": {
+                        "label": "Visibililty restriction by alert category"
+                    }
+                  },
+                  {
+                    "type": "label_view",
+                    "key": "status",
+                    "className": "flex-1",
+                    "props": {
+                    "label": "Status"
+                    }
+                  }
+                
+                 ]},
+                 {
+                    "fieldGroupClassName": "display-flex",
+                    "fieldGroup": [
+                      {
+                        "type": "label_view",
+                        "key": "username",
+                        "className": "flex-1",
+                        "props": {
+                            "label": "User Name"
+                        }
+                      },
+                      {
+                        "type": "label_view",
+                        "key": "email_id",
+                        "className": "flex-1",
+                        "props": {
+                            "label": "Email Id"
+                        }
+                      }
+                      
+                    
+                     ]},
+                     {
+                        "fieldGroupClassName": "display-flex",
+                        "fieldGroup": [
+                         
+                          {
+                            "type": "label_view",
+                            "key": "contact_no",
+                            "className": "flex-1",
+                            "props": {
+                            "label": "Contact Number"
+                            }
+                          },
+                          {
+                            "type": "label_view",
+                            "key": "role_id",
+                            "className": "flex-1",
+                            "props": {
+                                "label": "Role"
+                            }
+                          }
+                         
+                        
+                         ]}
+                      
+
+	  ]
+	}
+
+  }

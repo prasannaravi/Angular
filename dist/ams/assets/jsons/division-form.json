@@ -1,0 +1,46 @@
+{
+	"pageHeading": "Division",
+	"formType": "simple",
+  "addEditMode": "popup",
+  "popupWidth": "400px",
+  "keyField":"division_code",
+	"form": {
+	  "collectionName": "division",
+	  "fields": [
+			{
+			  "type": "input",
+			  "key": "division_code",
+			  "props": {
+				"label": "Division Code",
+				"placeholder": "Code",
+				"required": true,
+        "pattern": "^[a-zA-Z0-9-_]*$"
+			  }
+			},
+      {
+        "type": "input",
+        "key": "name",
+        "props": {
+        "label": "Division Name",
+        "pattern": "^[a-zA-Z0-9&>/;,:-_]+( [a-zA-Z0-9&>/;,:-_]+)*$",
+        "placeholder": "Name",
+        "required": true
+        }
+      },
+      {
+      "type": "select_dynamic_options",
+      "key": "business_admin_id",
+      "props": {
+        "label": "Business Administrator Name",
+        "labelPropTemplate": " {{username}}",
+        "optionsDataSource": {
+        "collectionName": "user"
+          },
+        "labelProp": "username",
+        "valueProp": "user_id",
+        "required": true
+        }
+    	}
+    ]
+  }
+}
